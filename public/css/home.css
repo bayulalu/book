@@ -1,0 +1,49 @@
+#nav-bg{
+	height: 550px;
+	background: url('../img/bg2.jpg') no-repeat;
+	background-size: cover;
+	border-bottom: solid 1px #dba623;
+}
+
+#nav-bg img{
+	margin-top: 25px;
+	margin-left: 32px; 
+	width: 180px
+}
+@font-face{
+		/*standar : namanya bebas*/
+		font-family: home;
+		src : url('../font/coolvetica rg.ttf');
+	}
+.home{
+	font-family: home;
+	margin-top: 60px;
+	margin-right: 10px;
+	font-size: 17px;
+	width: 120px;
+	border-radius: 20px;
+	background: transparent;
+	border: 2px solid #ffffff;
+}
+.home:hover{
+	color: black;
+	background-color: #94b82f;
+	border: 2px solid #94b82f;
+}
+
+.novel{
+	font-family: home;
+	margin-top: 60px;
+	margin-right: 80px;
+	font-size: 17px;
+	width: 120px;
+	border-radius: 20px;
+	background: transparent;
+	border: 2px solid #ffffff;
+}
+.novel:hover{
+	color: black;
+	background-color: #94b82f;
+	border: 2px solid #94b82f;
+}
+	
