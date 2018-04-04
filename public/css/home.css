@@ -1,20 +1,40 @@
+.nav-color{
+	background-color: rgba(0, 0, 0, 0.3) !important;
+}
 #nav-bg{
 	height: 550px;
 	background: url('../img/bg2.jpg') no-repeat;
 	background-size: cover;
 	border-bottom: solid 1px #dba623;
 }
-
+.nav-menu{
+	display: none;
+}
 #nav-bg img{
 	margin-top: 25px;
 	margin-left: 32px; 
 	width: 180px
 }
+.logo{
+	margin-left: 30px;
+	font-family: home;
+}
 @font-face{
 		/*standar : namanya bebas*/
 		font-family: home;
 		src : url('../font/coolvetica rg.ttf');
-	}
+}
+@font-face{
+	font-family: motivasi;
+	src : url('../font/Death Before Chocolate Personal Use.ttf');
+}
+@font-face{
+	font-family:konten ;
+	src : url('../font/rm_typerighter_medium.ttf');
+
+}
+
+
 .home{
 	font-family: home;
 	margin-top: 60px;
@@ -26,7 +46,6 @@
 	border: 2px solid #ffffff;
 }
 .home:hover{
-	color: black;
 	background-color: #94b82f;
 	border: 2px solid #94b82f;
 }
@@ -42,8 +61,84 @@
 	border: 2px solid #ffffff;
 }
 .novel:hover{
-	color: black;
 	background-color: #94b82f;
 	border: 2px solid #94b82f;
 }
+.nav-conten{
+	font-family: motivasi;
+}
+.nav-conten h3, span{
+	font-size: 72px;
+	color: black;
+	opacity: 0.8;
+}
+.nav-conten span{
+	/* color: white; */
+	margin-top: -40px;
+	display: inline-block;
+}
+.con{
+	background-color: #E2E2E2;
+	box-shadow: 0 0 0 0 0 black;
 	
+}
+.lorem{
+	font-size: 30px;
+}
+.gambar-kiri{
+	margin-top: 30px;
+
+}
+.konten-kanan h5{
+	font-size: 35px;
+	margin-top: 35px;
+	font-family: home;
+}
+.konten-kanan p{
+	margin-top: -7px;
+	font-size: 20px;
+	font-family: konten;
+}
+.title{
+	font-family: home;
+	font-size: 50px;
+}
+.wrap-sp{
+	margin-top: 30px;
+	height: 250px;
+	background: url('../img/bg.jpg') no-repeat;
+	background-size: cover;
+	color: white;
+}
+.wrap-sp h4{
+	margin-top: 47px;
+	display: inline-block;
+	font-size: 40px;
+}
+.wrap-sp p{
+	margin-top: -7px;
+	font-size: 25px;
+	color: #568bb1;
+}
+.wrap-requered{
+	margin-top: 100px;
+}
+.request{
+	border-radius: 15px;
+	font-family: home;
+	margin-top: -30px;
+	font-size: 17px;
+	width: 120px;
+	border-radius: 20px;
+	border: 2px solid #000000;
+	background: transparent;
+	color: black;
+}
+.request:hover{
+	border: 2px solid #CFC42F;
+	background-color: #1ee055;
+	color: white;
+}
+.katagori{
+	top: -60px;
+}
