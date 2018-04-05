@@ -1,0 +1,13 @@
+.logo{
+	margin-left: 30px;
+	font-family: home;
+}
+
+@font-face{
+		/*standar : namanya bebas*/
+		font-family: home;
+		src : url('../font/coolvetica rg.ttf');
+}
+.katagori{
+	top: -60px;
+}

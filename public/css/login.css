@@ -1,0 +1,55 @@
+ body{
+ 	background-image: url('../img/login.jpg');
+ 	background-repeat: no-repeat;
+	background-size: cover;
+ }
+ h4{
+ 	margin-bottom: 20px;
+ 	color: #2b6ad3;
+ }
+ #forms{
+	background-color: #ffffff;
+	width: 100%;
+	border-radius: 20px;
+	color: red;
+	padding: 10px;
+	height: 250px;
+	margin-top: 180px;
+ 	
+} 
+.email{
+	/* display: none; */
+	margin-top: 10px;
+}
+.password{
+	animation-name: animasi;
+	animation-duration: 1s;
+	animation-timing-function: ease-out;
+}
+@keyframes animasi{
+	from {
+		transform: translateX(520px);
+	}
+	to {
+		transform: translateX(0px);
+	}
+}
+.btn-login{
+	padding: 5px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 15px;
+	width: 90px;
+	background: transparent;
+	border: 2px solid #1480EA;
+    color: black;
+    border-radius: 20px;
+}
+.btn-login:hover{
+	background-color: rgba(27, 197, 227, 0.7);
+}
+#verify{
+	position: absolute;
+	margin-top: -20px;
+	color: red;
+}

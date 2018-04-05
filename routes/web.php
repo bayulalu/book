@@ -2,5 +2,5 @@
 
 
 Route::get('/', function () {
-    return view('home/home');
+    return view('auth/register');
 });

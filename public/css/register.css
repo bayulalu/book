@@ -1,0 +1,25 @@
+body{
+	color: white;
+	background-image: url('../img/bg-register.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+
+
+}
+.kanan{
+	margin-top: 20px;
+}
+.bg{
+	background-color: rgba(246, 13, 8, 0.5);
+	border-radius: 15px;
+}
+.bg:hover{
+	transition: background-color 1s;
+	background-color: rgba(246, 13, 8, 1);	
+}
+#verify{
+	position: absolute;
+	margin-left: 45px;
+	margin-top: -15px;
+	color: white;
+}
