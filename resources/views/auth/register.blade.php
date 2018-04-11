@@ -2,6 +2,7 @@
 @section('title', 'Login')
 
 <link rel="stylesheet" type="text/css" href="css/register.css">
+<link rel="stylesheet" type="text/css" href="css/animate.css">
 
 
 @section('conten')

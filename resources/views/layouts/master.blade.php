@@ -25,8 +25,8 @@
   <div class="nav-wrapper nav-color">
     <a href="#!" class="brand-logo logo">Buku</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Home</a></li>
-      <li><a href="badges.html">Buku</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Buku</a></li>
       <!-- Dropdown Trigger -->
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Katagori<i class="material-icons right">arrow_drop_down</i></a></li>
     </ul>
