@@ -3,10 +3,9 @@
 @section('title', 'Login')
 
 <link rel="stylesheet" type="text/css" href="css/login.css">
-<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="css/animate.css">
 
-=======
+
 <style type="text/css">
 	#warrnig{
 		margin-top: 40px;
@@ -18,7 +17,6 @@
 		color: red;
 	}
 </style>
->>>>>>> auth
 @section('conten')
 <div class="row bg" >
 	<div class="container">
