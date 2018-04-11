@@ -18,7 +18,7 @@
 </ul>
 
 <div class="navbar-fixed nav-menu">
-<nav>
+<nav class="deep-orange darken-4">
 
   <div class="nav-wrapper nav-color">
     <a href="#!" class="brand-logo logo">Buku</a>

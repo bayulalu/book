@@ -3,16 +3,39 @@
 @section('title', 'Login')
 
 <link rel="stylesheet" type="text/css" href="css/login.css">
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="css/animate.css">
 
+=======
+<style type="text/css">
+	#warrnig{
+		margin-top: 40px;
+		padding: 10px;
+		margin-left: 100px;
+		border-radius: 10px;
+		position: absolute;
+		background: rgba(242, 251, 249, 0.6);
+		color: red;
+	}
+</style>
+>>>>>>> auth
 @section('conten')
-<div class="row bg">
+<div class="row bg" >
+	<div class="container">
+		
+	</div>
 		<div class="col s12 animated fadeIn" >
 			<div class="row">
 				<div class="col s4 offset-s4">
+					@if (session('msg'))
+						<div class="center " id="warrnig">
+							{{session('msg')}}
+						</div>
+					@endif
 				<div id="forms">
 				<h4 class="center"><b>LOGIN</b></h4>
-				<form>
+				<form action="/login" method="post">
+					{{csrf_field()}}
 				<div class="email" v-show="login == true ">
 					<div class="input-field col s12">
 			            <input id="email"  type="email" class="validate" v-model="email" name="email">

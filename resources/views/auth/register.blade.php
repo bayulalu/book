@@ -12,19 +12,26 @@
 	<div class="row">
 		<div class="col m6">
 			
-	<form>
+	<form method="post" action="/register">
 			<div id="app">
 			<div class="input-field col s12">
 			            <i class="material-icons prefix">account_circle</i>
-			            <input id="icon_prefix" name="user" type="text" class="validate" >
+			            <input id="icon_prefix" name="name" type="text" class="validate" value="{{old('name')}}">
 				        <label for="icon_prefix">User Name</label>
 				        <span id="verify"><p></p></span>
+				        @if ($errors->has('name'))
+				        	<span class="helper-text" style="color: white" ><b>{{$errors->first('name')}}</b></span>
+				        @endif
+				        
 			        </div>
 					<div class="input-field col s12">
 						<i class="material-icons prefix">email</i>
-			            <input id="email"  type="email" class="validate"  name="email">
+			            <input id="email"  type="email" class="validate"  name="email" value="{{old('email')}}">
 			            <label for="email" data-error="wrong" data-success="right">Email</label>
 			            <span id="verify"><p ></p></span>
+			            @if ($errors->has('name'))
+				        	<span class="helper-text" style="color: white" ><b>{{$errors->first('name')}}</b></span>
+				        @endif
 			        </div>
 				<div class="input-field col s12">
 					<i class="material-icons prefix">brightness_7</i>
@@ -32,19 +39,26 @@
 		           name="password" v-model="password">
 		          <label for="password">Password</label>
 		          <span id="verify"><p ></p></span>
+		          @if ($errors->has('password'))
+				        	<span class="helper-text" style="color: white" ><b>{{$errors->first('password')}}</b></span>
+			        @endif
 		        </div>
 		        <div class="input-field col s12">
 					<i class="material-icons prefix">brightness_7</i>
-		          <input id="password2" type="password" class="validate" name="password2" v-model="password2">
+		          <input id="password2" type="password" class="validate" name="password_confirmation" v-model="password2">
 		          <label for="password2">verify Password</label>	
 		          <span id="verify"><p ></p></span>
 		          <span v-if="pass"><p id="verify">*password tidak sama</p></span>
+		          @if ($errors->has('password_confirmation'))
+				        	<span class="helper-text" style="color: white" ><b>{{$errors->first('password_confirmation')}}</b></span>
+			        @endif
 
 		        </div>
 		        <button type="submit" name="submit" class="waves-effect waves-light btn right bg" @click="register">Register</button>
 		        <!-- <input type="submit" name="submit" value="login"> -->
 				
 		        </div>
+		    {{csrf_field()}}
 		    </form>
 
 		</div>
