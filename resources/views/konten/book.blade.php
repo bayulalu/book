@@ -1,28 +1,66 @@
 @extends('layouts.master')
 
 @section('title', 'Buku')
-
+<style type="text/css">
+  .cari{
+    margin-top: 30px;
+  }
+  #msg{
+    position: absolute;
+    padding: 20px;
+    right: 120px;
+    margin-top: 50px;
+    background-color: rgba(37, 141, 176, 0.5);
+    border-radius: 20px;
+    color: red;
+    font-size: 18px;
+  }
+  .judul{
+    color: blue;
+  }
+</style>
 
 @section('conten')
-
-	<h3 class="center">Judul Buku</h3>
+<div class="row">
+  @if (session('msg'))
+    <div id="msg">
+      {{session('msg')}}  
+    </div>
+  @endif
+  
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s3 ">
+          <i class="material-icons prefix">youtube_searched_for</i>
+          <input id="icon_prefix" type="text" class="validate">
+          <label for="icon_prefix">Cari Buku</label>
+        </div>
+        <button class="waves-effect waves-light btn cari">Cari</button> 
+      </div>
+    </form>
+  </div>
+  {{-- akhir cari --}}
+	{{-- <h3 class="center">Judul Buku</h3> --}}
 	<div class="container">		
 		  <div class="row">
+  @foreach ($books as $book)         
     <div class="col s12 m3">
       <div class="card small">
         <div class="card-image">
-          <img src="/img/belajar-sabah.png">
-          <span class="card-title">Card Title</span>
+          <img src="{{asset('storage/buku/'.$book->img)}}">
+          <span class="card-title ">{{$book->title}}</span>
         </div>
         <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
+          <p></p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <a href="#">Baca</a>
         </div>
       </div>
     </div>
+  @endforeach
+
+
   </div>
 	</div>
 

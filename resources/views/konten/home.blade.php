@@ -21,10 +21,10 @@
 <nav class="deep-orange darken-4">
 
   <div class="nav-wrapper nav-color">
-    <a href="#!" class="brand-logo logo">Buku</a>
+    <a href="/home" class="brand-logo logo">Buku</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Home</a></li>
-      <li><a href="badges.html">Buku</a></li>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/buku">Buku</a></li>
       <!-- Dropdown Trigger -->
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Katagori<i class="material-icons right">arrow_drop_down</i></a></li>
     </ul>
@@ -38,8 +38,8 @@
 			 </div>
 
 		 <div  class="col s6 ">
-			<a href="" class="waves-effect waves-ligh right btn novel">Register</a>
-			<a href="" class=" waves-effect waves-ligh right btn home">Daftar</a>
+			<a href="/register" class="waves-effect waves-ligh right btn novel">Register</a>
+			<a href="/login" class=" waves-effect waves-ligh right btn home">Daftar</a>
 		</div>
 		
 	</div>

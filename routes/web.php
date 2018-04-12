@@ -13,10 +13,16 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/logout', 'AuthController@logout');
 });
 
-// Route::get('/create', 'BookController@create');
-	// Route::get('/')
 
+Route::group(['middleware' => 'admin'], function(){
+	Route::resource('/buku', 'BookController', ['except' => ['index','show']]);
+});
 
+Route::resource('/buku', 'BookController', ['only' => ['index', 'show']]);
+
+Route::get('/home', function(){
+	return view('konten/home');
+});
 Route::get('/', function () {
-    return view('konten/create');
+    return view('konten/home');
 });
