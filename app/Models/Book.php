@@ -14,6 +14,11 @@ class Book extends Model
     	return $this->belongsTo('App\Models\User');
     } 
 
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
+
     public function isOwner(){
     	if (Auth::guest()) {
     		return false;

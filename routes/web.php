@@ -1,5 +1,10 @@
 <?php
 
+Route::group(['middleware' => 'auth'], function(){
+	Route::post('/buku-comment/{id}', 'CommentController@comment');
+	Route::get('/profile', 'AuthController@profile');
+	Route::get('/logout', 'AuthController@logout');
+});
 
 Route::group(['middleware' => 'guest'], function(){
 	Route::get('/register', 'AuthController@register');
@@ -8,10 +13,6 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('/login', 'AuthController@login')->name('login');
 }) ;
 
-Route::group(['middleware' => 'auth'], function(){
-	Route::get('/profile', 'AuthController@profile');
-	Route::get('/logout', 'AuthController@logout');
-});
 
 
 Route::group(['middleware' => 'admin'], function(){

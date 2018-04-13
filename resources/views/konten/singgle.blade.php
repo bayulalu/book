@@ -7,6 +7,11 @@
 	#idtitas{
 		margin-top: 15px;
 	}
+	#post{
+		color: #a5aaaa;
+		font-size: 15px;
+	}
+
 </style>
 @section('conten')
 	<div class="container">
@@ -49,6 +54,37 @@
 				<p>{{$book->synopsis}}</p>
 			</div>
 		</div>
+		<span id="post">Post By: {{$book->user->name}}</span>
+	</div>
+	<hr>
+<div class="container">
+{{-- comment --}}
+	@foreach ($book->comments as $comment)
+		
+		<ul><li>{{$comment->user->name}} <br>
+		</li></ul>
+		<hr>
+		<p>{{$comment->subject}}</p>
+		
+	@endforeach
+	{{-- comment --}}
+	
+<form method="post" action="/buku-comment/{{$book->id}}">
+	
+	<div class="row">
+        <div class="input-field col s12">
+          <textarea id="comment" class="materialize-textarea" name="subject">{{old('subject')}}</textarea>
+          <label for="comment">Koemtar</label>
+           @if ($errors->has('subject'))
+                  <span class="helper-text" style="color: red" ><b>{{$errors->first('subject')}}</b></span>
+            @endif
+        </div>
+    </div>
+    <div>
+    	<button type="submit" class="right waves-effect waves-light btn">Komentar</button>
+    </div>
+    {{ csrf_field() }}
+</form>
 	</div>
 
 @endsection

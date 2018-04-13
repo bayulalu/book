@@ -39,4 +39,9 @@ class User extends Authenticatable
     public function buku(){
         return $this->hasMany('App\Models\Book');
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
 }
