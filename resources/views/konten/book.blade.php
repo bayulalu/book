@@ -28,14 +28,14 @@
     </div>
   @endif
   
-    <form class="col s12">
+    <form class="col s12" method="get" action="/buku">
       <div class="row">
         <div class="input-field col s3 ">
           <i class="material-icons prefix">youtube_searched_for</i>
-          <input id="icon_prefix" type="text" class="validate">
+          <input id="icon_prefix" type="text" class="validate" name="cari">
           <label for="icon_prefix">Cari Buku</label>
         </div>
-        <button class="waves-effect waves-light btn cari">Cari</button> 
+        <button type="submit" class="waves-effect waves-light btn cari">Cari</button> 
       </div>
     </form>
   </div>

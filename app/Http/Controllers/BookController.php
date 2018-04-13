@@ -15,10 +15,18 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $books = Book::orderBy('id','desc')->get();
-        return view('konten.book',compact('books'));
+
+        // $tags = Tag::all();
+
+        $cari_b = urldecode($request->cari);
+        if (!empty($cari_b)) {
+            $books = Book::where('title','like','%'.$cari_b.'%')->get();
+        }else{
+            $books = Book::orderBy('id','desc')->get();
+        }
+            return view('konten.book',compact('books'));
     }
 
     /**

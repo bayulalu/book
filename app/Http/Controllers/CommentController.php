@@ -29,7 +29,12 @@ class CommentController extends Controller
     public function edit($id)
     {
         $comment = Comment::findOrFail($id);
-        return view('comment.editComment', compact('comment'));
+        if ($comment->isOwner()) {
+           return view('comment.editComment', compact('comment'));
+        }else{
+            abort(403);
+        }
+        
     }
 
     public function update(Request $request,$id)
@@ -40,10 +45,14 @@ class CommentController extends Controller
 
         $comment = Comment::findOrFail($id);
 
-        $comment->update([
-            'subject' => $request->comment
-        ]);
-        return redirect('/buku/'.$comment->book->slug);
+        if($comment->isOwner()){
+            $comment->update([
+                'subject' => $request->comment
+            ]);
+            return redirect('/buku/'.$comment->book->slug);
+        }else{
+            abort(403);
+        }
     }
 
     public function destroy($id)
