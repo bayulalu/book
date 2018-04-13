@@ -21,9 +21,16 @@
 
 <ul id="dropdown2" class="dropdown-content katagori">
   <li><a href="/profile">Beranda</a></li>
-  <li><a href="/buku/create">Input Buku</a></li>
-  <li class="divider"></li>
-  <li ><a href="#!">Logout</a></li>
+
+  @if (Auth::user())
+    @if (Auth::user()->isAdmin())
+      <li><a href="/buku/create">Input Buku</a></li>
+      <li class="divider"></li>
+    @endif
+    <li ><a href="/logout">Logout</a></li>
+  @endif
+
+
   <li class="divider"></li>
 </ul>
 
@@ -31,6 +38,7 @@
 <nav class="deep-orange darken-4">
 
   <div class="nav-wrapper nav-color">
+
     <a href="/home" class="brand-logo logo">Buku</a>
     <ul class="right hide-on-med-and-down">
       <li><a href="/home">Home</a></li>
@@ -38,8 +46,12 @@
       <!-- Dropdown Trigger -->
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Katagori<i class="material-icons right">arrow_drop_down</i></a></li>
 
+     @guest
+     @else
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Profile<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a href="/profile">Notifikasi: (0)</a></li>
+      @endguest
+
     </ul>
   </div>
 </nav>

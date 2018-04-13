@@ -75,9 +75,11 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $book = Book::where('slug', $slug)->first();
+
+        return view('konten.singgle', compact('book'));
     }
 
     /**
@@ -88,7 +90,12 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+       $book = Book::findOrFail($id);
+        if ($book->isOwner()) { 
+            return view('konten.update', compact('book'));
+         }else{
+            abort(403);
+        }
     }
 
     /**
@@ -100,7 +107,32 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'author' => 'required|min:3',
+            'publisher' => 'required|min:3',
+            'title' => 'required|min:3',
+            'synposis' => 'required|min:10',
+            'gambar' => 'required|mimes:jpeg,jpg,png|max:1000'
+        ]);
+
+        $fileName = time().'.png';
+        $request->file('gambar')->storeAs('public/buku', $fileName);
+        
+        $book = Book::findOrFail($id);      
+              
+            $book->update([
+                'author' => $request->author,
+                'publisher' => $request->publisher,
+                'title' => $request->title,
+                'synopsis' => $request->synposis,
+                'img' => $fileName,
+
+            ]);
+
+            return redirect('/buku')->with('msg','Data Berhasil Diubah');
+       
+
+
     }
 
     /**
@@ -111,6 +143,8 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $book = Book::findOrFail($id);  
+        $book->delete();
+        return redirect('/buku')->with('msg','Data Berhasil Dihapus');
     }
 }

@@ -13,36 +13,40 @@
 		<div class="row">
 			<div class="col s2">
 				<div class="spase"></div>
-				<img  src="/gambar/gambar1.jpg" width="120" height="160">
+				<img  src="{{asset('storage/buku/'.$book->img)}}" width="120" height="160">
 			</div>
 			<div class="col s10">
 			<div class="spase"></div>
-				<div id="idtitas">Pengarang : Fulan</div>
-				<div id="idtitas">Penerbit : FUlan</div>
-				<div id="idtitas">Judul : Luasnya Alamaku</div>
+				<div id="idtitas">Pengarang : {{$book->author}}</div>
+				<div id="idtitas">Penerbit : {{$book->publisher}}</div>
+				<div id="idtitas">Judul : {{$book->title}}</div>
 				<br>
-				<div>
-					<button class="waves-effect waves-light btn green darken-1">Update</button>
-					<button class="waves-effect waves-light btn  red darken-3">Delete</button>
+				@if ($book->isOwner())
+					<div>
+					<div class="col s2">
+						<a href="/buku/{{$book->id}}/edit" class="waves-effect waves-light btn green darken-1">Update</a>
+					</div>
+					<div class="col s2">
+						
+					<form method="post" action="/buku/{{$book->id}}">
+						{{csrf_field()}}
+						<input type="hidden" name="_method" value="DELETE">
+						<button type="submit" class="waves-effect waves-light btn  red darken-3">Delete</button>
+					</form>
+					</div>
 					
 				</div>
+				@endif
+				
+
+				{{-- end --}}
 			</div>
 			<div class="col s12">
 				<br><br>
 				
 			<hr>
 				<div>Sinopsis : </div>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p>{{$book->synopsis}}</p>
 			</div>
 		</div>
 	</div>

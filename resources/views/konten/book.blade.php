@@ -54,7 +54,7 @@
           <p></p>
         </div>
         <div class="card-action">
-          <a href="#">Baca</a>
+          <a href="/buku/{{$book->slug}}">Baca</a>
         </div>
       </div>
     </div>
