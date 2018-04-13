@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
@@ -17,5 +17,12 @@ class Comment extends Model
     public function book()
     {
     	return $this->belongsTo('App\Models\Book');
+    }
+    public function isOwner(){
+        if (Auth::guest()) {
+            return false;
+        }
+
+        return Auth::user()->id == $this->user->id;
     }
 }

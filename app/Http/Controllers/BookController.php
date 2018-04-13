@@ -17,7 +17,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
+        $books = Book::orderBy('id','desc')->get();
         return view('konten.book',compact('books'));
     }
 
@@ -78,7 +78,7 @@ class BookController extends Controller
     public function show($slug)
     {
         $book = Book::where('slug', $slug)->first();
-
+        
         return view('konten.singgle', compact('book'));
     }
 

@@ -12,7 +12,7 @@
 	<div class="row">
 		<div class="col m6">
 			
-	<form method="post" action="/register">
+	<form method="post" action="/register" enctype="multipart/form-data">
 			<div id="app">
 			<div class="input-field col s12">
 			            <i class="material-icons prefix">account_circle</i>
@@ -54,7 +54,24 @@
 			        @endif
 
 		        </div>
-		        <button type="submit" name="submit" class="waves-effect waves-light btn right bg" @click="register">Register</button>
+
+		        {{-- foto --}}
+    <div class="file-field input-field col s7">
+    <div class="btn deep-orange darken-4">
+        <span >File</span>
+        <input type="file" multiple name="gambar">
+    </div>
+  	<div class="file-path-wrapper">
+        <input class="file-path validate " type="text" placeholder="Upload Gambar" >        
+      </div>
+    </div>
+    <br>
+      @if ($errors->has('gambar'))
+          <p style="color:red"><b> {{$errors->first('gambar')}}</b> </p>
+        @endif
+
+        {{-- end foto --}}
+        <button type="submit" name="submit" class="waves-effect waves-light btn right bg" @click="register">Register</button>
 		        <!-- <input type="submit" name="submit" value="login"> -->
 				
 		        </div>

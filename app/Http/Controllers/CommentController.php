@@ -25,4 +25,32 @@ class CommentController extends Controller
 
         return redirect('/buku/'.$buku->slug);
     }
+
+    public function edit($id)
+    {
+        $comment = Comment::findOrFail($id);
+        return view('comment.editComment', compact('comment'));
+    }
+
+    public function update(Request $request,$id)
+    {
+        $this->validate($request, [
+            'comment' => 'required|min:2'
+        ]);
+
+        $comment = Comment::findOrFail($id);
+
+        $comment->update([
+            'subject' => $request->comment
+        ]);
+        return redirect('/buku/'.$comment->book->slug);
+    }
+
+    public function destroy($id)
+    {
+        $comment = Comment::findOrFail($id);
+        $comment->delete();
+
+        return redirect('/buku/'.$comment->book->slug);
+    }
 }

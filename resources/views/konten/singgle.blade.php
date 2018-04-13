@@ -11,6 +11,11 @@
 		color: #a5aaaa;
 		font-size: 15px;
 	}
+	#name{
+		color: blue;
+		font-size: 20px;
+	}
+	
 
 </style>
 @section('conten')
@@ -58,13 +63,32 @@
 	</div>
 	<hr>
 <div class="container">
+	<h5 class="center">Komentar</h5>
 {{-- comment --}}
 	@foreach ($book->comments as $comment)
 		
-		<ul><li>{{$comment->user->name}} <br>
-		</li></ul>
-		<hr>
-		<p>{{$comment->subject}}</p>
+		<div class="row">
+
+			<div class="col s1">
+				<img width="80" src="{{ asset('storage/foto/'.$comment->user->foto) }}">
+			</div>
+			<div class="col s8 " style="margin-left: 20px;">
+				<span id="name">{{$comment->user->name}}</span>
+				<div>{{$comment->subject}}</div>
+		
+			</div>
+		@if ($comment->isOwner())
+				
+			<form method="post" action="/buku-comment/{{$comment->id}}">
+				<input type="hidden" name="_method" value="DELETE">
+				{{csrf_field()}}
+			<a href="/buku-comment/{{$comment->id}}/edit" class="waves-effect waves-light btn green darken-1">Update</a>
+				<button class="waves-effect waves-light btn red darken-3">Delete</button>
+			</form>
+		@endif
+		</div>
+			<hr>
+
 		
 	@endforeach
 	{{-- comment --}}
@@ -80,10 +104,10 @@
             @endif
         </div>
     </div>
+    	<button type="submit" name="submit" class="right waves-effect waves-light btn">Komentar</button>
     <div>
-    	<button type="submit" class="right waves-effect waves-light btn">Komentar</button>
     </div>
-    {{ csrf_field() }}
+    {{csrf_field()}}
 </form>
 	</div>
 
