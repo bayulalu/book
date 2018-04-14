@@ -17,7 +17,7 @@
 		<div class="row">
 		{{-- <span id="gambar"></span> --}}
 			<div class="col s2" id="gambar">
-			<img src="{{ asset('storage/foto/'.$data->foto) }}" width="150">
+			<img src="{{ asset('storage/foto/'.$user->foto) }}" width="150">
 			</div>
 			<div class="col s9" id="owner">
 				Nama : {{Auth::user()->name}}<br>
@@ -34,7 +34,7 @@
 		
 
 		  <div class="collection">
-		    <a href="/buku/{{$book->slug}}" class="collection-item"><span class="badge"></span>{{$user->books->title}}</a>    
+		    <a href="/buku/{{$book->slug}}" class="collection-item"><span class="badge"></span>{{$book->title}}</a>    
 		  </div>
 		@endforeach
 
