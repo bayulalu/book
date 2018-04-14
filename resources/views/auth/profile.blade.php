@@ -1,10 +1,43 @@
 @extends('layouts.master')
 @section('title', 'Profile')
+<style type="text/css">
+	#gambar{
+		margin-top: 80px;
+	}
+	#owner{
+		margin-top: 85px;
+		margin-left: 10px;
+		font-size: 28px;
+	}
+
+</style>
 @section('conten')
 
 	<div class="container">
-		<img src="{{ asset('storage/foto/'.$data->foto) }}" width="50">
-		<h1>Ini Halaman Proifle</h1> <a href="/logout">Logout</a>
+		<div class="row">
+		{{-- <span id="gambar"></span> --}}
+			<div class="col s2" id="gambar">
+			<img src="{{ asset('storage/foto/'.$data->foto) }}" width="150">
+			</div>
+			<div class="col s9" id="owner">
+				Nama : {{Auth::user()->name}}<br>
+				Status : @if (Auth::user()->status == 1)
+							Admin
+						@else
+							-
+						@endif
+			</div>
+		</div>
+		<hr>
+		<h4 class="center">Produk Yang Telah Di Post</h4>
+		@foreach ($user->books as $book)
+		
+
+		  <div class="collection">
+		    <a href="/buku/{{$book->slug}}" class="collection-item"><span class="badge"></span>{{$user->books->title}}</a>    
+		  </div>
+		@endforeach
+
 	</div>
 
 @endsection

@@ -59,10 +59,17 @@ class AuthController extends Controller
 		return redirect('/profile');
     }
 
-    public function profile()
+    public function profile($id = null)
     {
-      $data = Auth::user();
-    	return view('auth.profile', compact('data'));
+    
+      if ($id == null) {
+            $user = User::findOrFail(Auth::user()->id);
+            
+        }else{
+            $user = User::findOrFail($id);
+        }
+        // dd($user->buku->subject);
+        return view('auth.profile', compact('user'));
     }
 
     public function logout(){

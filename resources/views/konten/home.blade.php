@@ -19,7 +19,7 @@
 
 
 <ul id="dropdown2" class="dropdown-content katagori">
-  <li><a href="/profile">Beranda</a></li>
+  <li><a href="/profile">Profile</a></li>
   @if (Auth::user())
   	@if (Auth::user()->isAdmin())
   		<li><a href="/buku/create">Input Buku</a></li>

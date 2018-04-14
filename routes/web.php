@@ -11,7 +11,7 @@ Route::group(['middleware' => 'auth'], function(){
 
 	Route::get('/notifications', 'NotificationController@notif');
 
-	Route::get('/profile', 'AuthController@profile');
+	Route::get('/profile/{id?}', 'AuthController@profile');
 	Route::get('/logout', 'AuthController@logout');
 });
 
