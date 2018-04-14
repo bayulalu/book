@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Models\Book;
 use App\Models\Comment;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function comment(Request $request, $id)
+    public function store(Request $request, $id)
     {
         $this->validate($request, [
         	'subject' => 'required|min:2'
@@ -22,6 +23,16 @@ class CommentController extends Controller
         	'book_id' => $id,
         	'user_id' => Auth::user()->id
         ]); 
+        if ($buku->user->id != Auth::user()->id) {
+            Notification::create([
+                'subject' => 'Ada komentar dari '. Auth::user()->name,
+                'user_id' =>  $buku->user->id,
+                'book_id' => $id
+            ]);
+        }
+
+
+
 
         return redirect('/buku/'.$buku->slug);
     }

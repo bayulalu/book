@@ -1,13 +1,15 @@
 <?php
 
 Route::group(['middleware' => 'auth'], function(){
-	Route::post('/buku-comment/{id}', 'CommentController@comment');
+	Route::post('/buku-comment/{id}', 'CommentController@store');
 
 	Route::get('/buku-comment/{id}/edit', 'CommentController@edit' );
 
 	Route::put('buku-comment/{id}', 'CommentController@update');
 
 	Route::delete('buku-comment/{id}', 'CommentController@destroy');
+
+	Route::get('/notifications', 'NotificationController@notif');
 
 	Route::get('/profile', 'AuthController@profile');
 	Route::get('/logout', 'AuthController@logout');

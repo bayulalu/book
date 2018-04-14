@@ -48,7 +48,7 @@
 
 	@guest
 	@else
-       <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Profile<i class="material-icons right">arrow_drop_down</i></a></li>
+       <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">{{Auth::user()->name}}<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a href="/profile">Notifikasi: (0)</a></li>
       @endguest
 
