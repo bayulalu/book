@@ -13,7 +13,7 @@
 </style>
 @section('conten')
 
-	<div class="container">
+	<div class="container animated fadeInLeftBig">
 		<div class="row">
 		{{-- <span id="gambar"></span> --}}
 			<div class="col s2" id="gambar">

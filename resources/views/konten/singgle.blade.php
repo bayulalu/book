@@ -19,7 +19,8 @@
 
 </style>
 @section('conten')
-	<div class="container">
+<div class="animated fadeInDownBig">
+	<div class="container ">
 		<div class="row">
 			<div class="col s2">
 				<div class="spase"></div>
@@ -110,5 +111,5 @@
     {{csrf_field()}}
 </form>
 	</div>
-
+</div>
 @endsection

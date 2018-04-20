@@ -2,7 +2,7 @@
 @section('title', 'Profile')
 @section('conten')
 
-	<div class="container">
+	<div class="container animated fadeInDownBig">
 		<div class="row">
 		<h3 class="center">Ini Halaman Notifikasi {{Auth::user()->name}} </h3>
 		<div class="col s6 offset-s3">

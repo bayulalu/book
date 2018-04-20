@@ -19,7 +19,7 @@
 </style>
 @section('conten')
 <div class="row bg" >
-	<div class="container">
+	<div class="container ">
 		
 	</div>
 		<div class="col s12 animated fadeIn" >
@@ -30,7 +30,7 @@
 							{{session('msg')}}
 						</div>
 					@endif
-				<div id="forms">
+				<div id="forms" class="animated fadeInDownBig">
 				<h4 class="center"><b>LOGIN</b></h4>
 				<form action="/login" method="post">
 					{{csrf_field()}}

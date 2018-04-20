@@ -82,7 +82,20 @@
 }
 .lorem{
 	font-size: 30px;
+	transform: translateX(-1100px)
 }
+.lorem-after{
+	transition: transform 3s;
+	transform: translateX(0px);
+}
+.gambar{
+	transform: translateX(-800px);
+}
+.gambar-after{
+	transition: transform 2s;
+	transform: translateX(0px);
+}
+
 .gambar-kiri{
 	margin-top: 30px;
 
@@ -96,6 +109,21 @@
 	margin-top: -7px;
 	font-size: 20px;
 	font-family: konten;
+}
+.membaca{
+	transform: translateX(700px);
+}
+.membaca-after{
+	transition: transform 2s;
+	transform: translateX(0px);
+}
+
+.lorem2{
+	transform: translateY(200px);
+}
+.lorem2-after{
+	transition:  transform 2s;
+	transform: translateY(0px);
 }
 .title{
 	font-family: home;
@@ -139,4 +167,19 @@
 }
 .katagori{
 	top: -60px;
+}
+
+.form{
+	transform: translateX(-800px);
+}
+.form-after{
+	transition: transform 2s;
+	transform: translateX(0px);
+}
+.peta{
+	transform: translateX(800px);
+}
+.peta-after{
+	transition: transform 2s;
+	transform: translateX(0px);
 }

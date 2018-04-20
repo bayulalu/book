@@ -6,7 +6,7 @@
 		}
 	</style>
 @section('conten')
-	<div class="container">
+	<div class="container animated fadeInDownBig">
 		<h4 class="center">Masukan Data Buku</h4>
 		 <div class="row">
     <form class="col s12" method="post" action="/buku/{{$book->id}}" enctype="multipart/form-data">

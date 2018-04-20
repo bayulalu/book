@@ -6,6 +6,9 @@
 <link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
 <link rel="stylesheet" type="text/css" href="/css/home.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style type="text/css">
+  
+  </style>
 <body>
 <!-- nav -->
 <!-- Dropdown Structure -->
@@ -56,6 +59,9 @@
   </div>
 </nav>
 </div>
+
+
+
 	<div id="nav-bg">
 		<div class="row">
 			<div class="col s6">
@@ -93,10 +99,10 @@
 	<h4 class="center title">Membaca Buku</h4>
 	<div class="row">
 		<div class="col s4 gambar-kiri" >
-			<img src="img/belajar-sabah.png" class="right">
+			<img src="img/belajar-sabah.png" class="right gambar">
 		</div>
 
-		<div class="col s6 offset-s2 konten-kanan">
+		<div class="col s6 offset-s2 konten-kanan membaca">
 			<h5 ><b>Membeaca </b></h5>
 			<p>Membaca Adalah merupakan kegiatan memahami teks bacaan dengan tujuan untuk memperoleh informasi dari teks yang kita baca. Pada saat membaca, biasanya dalam teks bacaan yang kita baca terkandung makna yang tersirat (makna yang tersembunyi) dan tersurat (makna yang tertulis)</p>
 		</div>
@@ -105,15 +111,17 @@
 </div>
 
 <div class="wrap-sp center">
+  <div class="lorem2">
 	<h4>Lorem ipsum dolor sit </h4>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+  </div>
 </div>
 
 <div class="container wrap-requered">
 	<div class="row" >
-		<div class="col s6">
+		<div class="col s6 form">
 		<h5 class="center">Requeres Book</h5>
 			<div class="row">
     <form class="col s12">
@@ -138,8 +146,8 @@
         
 		</div>
 
-		<div class="col s6">
-			<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.5419692963987!2d116.41050811413017!3d-8.63989239024054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdb4a950743809%3A0xbfc89d26bf22f706!2sDESA+TERARA!5e0!3m2!1sid!2sid!4v1522832436151" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+		<div class="col s6 peta">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.5419692963987!2d116.41050811413017!3d-8.63989239024054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdb4a950743809%3A0xbfc89d26bf22f706!2sDESA+TERARA!5e0!3m2!1sid!2sid!4v1522832436151" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 		</div>
 	</div>
 </div>
@@ -193,11 +201,30 @@
 	 	});
 
 	 	$(window).scroll(function(){
+        if ($(window).scrollTop() > 40) {
+          $('.lorem').addClass('lorem-after');
+        }
+
+        if ($(window).scrollTop() > 440) {
+          $('.gambar').addClass('gambar-after');
+          $('.membaca').addClass('membaca-after');
+        }
+
+        if ($(window).scrollTop() > 720) {
+          $('.lorem2').addClass('lorem2-after');
+          
+        }
+
+        if ($(window).scrollTop() > 950) {
+          $('.form').addClass('form-after');
+          $('.peta').addClass('peta-after');
+        }
+
+
 	    	if ($(window).scrollTop() > 150) {
 	    		$('.nav-menu').css({
 	    			'transition': 'display 10s',
 	    			'display':'block',
-
 	    		});
 	    	
 	    	}else{
@@ -206,11 +233,7 @@
 	    			'display':'none',
 	    		});
 	    	}
-	    	// konten
-	    	// if ($(window).scrollTop() > 200) {
-	    	// 	 $('.pp').addClass('Ani-fto');
-	    	// 	 $('.Konten-pp').addClass('Ani-About');
-    		// }
+	    	
 	    });
 
 </script>

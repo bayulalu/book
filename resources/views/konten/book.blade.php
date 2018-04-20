@@ -21,6 +21,8 @@
 </style>
 
 @section('conten')
+
+
 <div class="row">
   @if (session('msg'))
     <div id="msg">
@@ -41,7 +43,7 @@
   </div>
   {{-- akhir cari --}}
 	{{-- <h3 class="center">Judul Buku</h3> --}}
-	<div class="container">		
+	<div class="container animated fadeInDownBig">		
 		  <div class="row">
   @foreach ($books as $book)         
     <div class="col s12 m3">

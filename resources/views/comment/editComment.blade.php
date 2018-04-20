@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title','edit Komentar')
 @section('conten')
-<div class="container">
+<div class="container animated fadeInDownBig">
 	<h3 class="center">Edit Komentar</h3>
 	<form method="post" action="/buku-comment/{{$comment->id}}">
 		<div class="row">

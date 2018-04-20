@@ -600,6 +600,8 @@
 
 .fadeInDownBig {
   animation-name: fadeInDownBig;
+  /*transition-timing-function: ease-in-out;*/
+  animation-duration: 3s;
 }
 
 @keyframes fadeInLeft {
@@ -632,6 +634,7 @@
 
 .fadeInLeftBig {
   animation-name: fadeInLeftBig;
+  animation-duration: 4s;
 }
 
 @keyframes fadeInRight {

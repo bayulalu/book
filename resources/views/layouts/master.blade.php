@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/css/costume.css">
+  <link rel="stylesheet" type="text/css" href="{{ asset('/css/animate.css') }}">
 <body>
 	
 <!-- nav -->
@@ -57,6 +58,10 @@
 </nav>
 </div>
 
+<div class="progress proses">
+    <div class="indeterminate  light-blue darken-3"></div>
+</div>
+
 	@yield('conten')
 
 
@@ -69,6 +74,11 @@ $(document).ready(function(){
 		 	 $(".dropdown-trigger").dropdown();
 
 	 	});
+
+   
+  $('.progress').delay(700).fadeOut('slow');
+  
+
 </script>
 
 </body>

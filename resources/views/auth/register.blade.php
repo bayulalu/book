@@ -6,7 +6,7 @@
 
 
 @section('conten')
-	<div class="container">
+	<div class="container animated fadeInDownBig">
 	<h2 class="center">Register</h2>
 
 	<div class="row">
