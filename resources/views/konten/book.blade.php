@@ -53,7 +53,11 @@
           <span class="card-title ">{{$book->title}}</span>
         </div>
         <div class="card-content">
-          <p></p>
+          Tag: 
+          @foreach($book->tags as $tag)
+              <span id="tag">{{$tag->name}}</span>,
+          @endforeach
+        
         </div>
         <div class="card-action">
           <a href="/buku/{{$book->slug}}">Baca</a>

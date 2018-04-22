@@ -28,5 +28,10 @@ class Book extends Model
     	return Auth::user()->id == $this->user->id;
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany('App\Models\Tag');
+    }
+
 
 }

@@ -13,11 +13,11 @@
 <!-- nav -->
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content katagori">
-  <li><a href="#!">Buku Belajar</a></li>
+  <li><a href="/buku/filter/belajar">Buku Belajar</a></li>
   <li class="divider"></li>
-  <li ><a href="#!">Novel</a></li>
+  <li ><a href="/buku/filter/novel">Novel</a></li>
   <li class="divider"></li>
-  <li><a href="#!">Motifasi</a></li>
+  <li><a href="/buku/filter/motivasi">Motivasi</a></li>
 </ul>
 
 <ul id="dropdown2" class="dropdown-content katagori">
@@ -66,6 +66,7 @@
 
 
 <script src="/js/JQuery.js"></script>
+
 <script src="/js/materialize.min.js"></script>
 <script src="/js/typed.min.js"></script>
 <script type="text/javascript">
@@ -80,6 +81,8 @@ $(document).ready(function(){
   
 
 </script>
+
+@yield('footer');
 
 </body>
 </html>

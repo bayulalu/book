@@ -1,9 +1,15 @@
 @extends('layouts.master')
-@section('title', 'Book')
+@section('title', 'Input Data Buku')
 	<style type="text/css">
 		.simpan{
 			margin-top: 25px;
 		}
+    #tag b{
+      color: red;
+      margin-left: 15px;
+      margin-top:-20px;
+      display: inline-block;
+    }
 	</style>
 @section('conten')
 	<div class="container animated fadeInLeftBig">
@@ -60,24 +66,66 @@
       <div class="file-path-wrapper">
         <input class="file-path validate " type="text" placeholder="Upload Gambar" >        
       </div>
-    </div>
-    <br>
       @if ($errors->has('gambar'))
           <p style="color:red"><b> {{$errors->first('gambar')}}</b> </p>
         @endif
+    </div>
+    <br>
     {{csrf_field()}}
 
-    <button class="btn waves-effect waves-light right deep-orange darken-4 simpan" type="submit" name="action">Simpan
+      
+           
+<div class="col s6">
+ <div class="input-field col s12">
+  @if (old('tags'))
+    <select multiple name="tags[]">
+      <option value="" disabled >Pilih Katagori</option>
+      @foreach ($tags as $tag)
+        
+        
+        <option @foreach(old('tags') as $tagp) @if ($tagp == $tag->id)
+          value="{{$tag->id}}" 
+          selected
+        @endif @endforeach
+
+         >{{$tag->name}}</option>
+      
+      @endforeach
+    </select>
+    @else
+    <select multiple name="tags[]">
+      <option value="" disabled selected>Pilih Katagori</option>
+      @foreach ($tags as $tag)
+        <option value="{{$tag->id}}">{{$tag->name}}</option>
+      @endforeach
+    </select>
+  @endif
+    <label>Add Tag Max 3</label>
+  </div>
+  @if (session('tag_error'))
+     <span id="tag"><b>{{session('tag_error')}}</b></span>
+  @endif
+</div>
+    <button class="btn waves-effect waves-light deep-orange darken-4 simpan" type="submit" name="action">Simpan
 	    <i class="material-icons right">send</i>
 	  </button>
         
     </form>
   </div>
 
+@endsection
+@section('footer')
+
+
   <script type="text/javascript">
-  	$('#textarea1').val('New Text');
-	  M.textareaAutoResize($('#textarea1'));
+  
+   var elem = document.querySelector('select');
+  
+
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
   </script>
         
-	</div>
+</div>
 @endsection

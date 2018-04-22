@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\Models\Tag;
 use App\Models\Book;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,7 +19,6 @@ class BookController extends Controller
     public function index(Request $request)
     {
 
-        // $tags = Tag::all();
 
         $cari_b = urldecode($request->cari);
         if (!empty($cari_b)) {
@@ -26,7 +26,7 @@ class BookController extends Controller
         }else{
             $books = Book::orderBy('id','desc')->get();
         }
-            return view('konten.book',compact('books'));
+            return view('konten.book',compact('books','tags'));
     }
 
     /**
@@ -36,7 +36,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('konten.create');
+        $tags = Tag::all();
+        return view('konten.create', compact('tags'));
     }
 
     /**
@@ -55,6 +56,11 @@ class BookController extends Controller
             'gambar' => 'required|mimes:jpeg,jpg,png|max:1000'
         ]);
 
+        if (empty($request->tags)){
+           return redirect('buku/create')->withInput($request->input())->with('tag_error','Tag Tidak Boleh Kosong');
+        }
+
+
 
          $slug = str_slug($request->title, '-');
 
@@ -72,6 +78,8 @@ class BookController extends Controller
           	'user_id' => Auth::user()->id
 
           ]);
+
+       $book->tags()->attach($request->tags);
 
           return redirect('/buku')->with('msg','Data Berhasil Di Tambahkan');
 
@@ -100,7 +108,8 @@ class BookController extends Controller
     {
        $book = Book::findOrFail($id);
         if ($book->isOwner()) { 
-            return view('konten.update', compact('book'));
+            $tags = Tag::all();
+            return view('konten.update', compact('book','tags'));
          }else{
             abort(403);
         }
@@ -154,5 +163,15 @@ class BookController extends Controller
         $book = Book::findOrFail($id);  
         $book->delete();
         return redirect('/buku')->with('msg','Data Berhasil Dihapus');
+    }
+
+    public function filter($tag)
+    {
+        $tags = Tag::all();
+        $books = Book::with('tags')->whereHas('tags',function($query) use ($tag){
+            $query->where('name', $tag);
+        })->get();
+
+        return view('konten.book', compact('books', 'tags'));
     }
 }

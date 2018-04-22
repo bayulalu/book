@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Login')
+@section('title', 'Register')
 
 <link rel="stylesheet" type="text/css" href="css/register.css">
 <link rel="stylesheet" type="text/css" href="css/animate.css">

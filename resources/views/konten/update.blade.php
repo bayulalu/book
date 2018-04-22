@@ -60,11 +60,56 @@
       <div class="file-path-wrapper">
         <input class="file-path validate " type="text" placeholder="Upload Gambar" >        
       </div>
-    </div>
-    <br>
       @if ($errors->has('gambar'))
           <p style="color:red"><b> {{$errors->first('gambar')}}</b> </p>
         @endif
+    </div>
+    <br>
+      
+
+<div class="col s6">
+ <div class="input-field col s12">
+  
+  @if(old('tags'))
+    <select multiple name="tags[]">
+      <option value="" disabled >Pilih Katagori</option>
+      @foreach ($tags as $tag)      
+        <option @foreach(old('tags') as $tagp) @if ($tagp == $tag->id)
+          value="{{$tag->id}}" 
+          selected
+        @endif @endforeach
+
+         >{{$tag->name}}</option>
+      
+      @endforeach
+    </select>
+  @else
+    <select multiple name="tags[]" >
+      <option value="" disabled >Pilih Katagori</option>
+      @foreach($tags as $tag)
+        <option @foreach ($book->tags as $oldTag) 
+          @if ($tag->id == $oldTag->id)
+            value="{{$tag->id}}" 
+            selected
+          @endif 
+           @endforeach>{{$tag->name}} </option>
+      
+      @endforeach 
+    </select>
+  @endif
+    <label>Add Tag Max 3</label>
+  </div>
+  @if (session('tag_error'))
+     <span id="tag"><b>{{session('tag_error')}}</b></span>
+  @endif
+</div>
+
+
+
+
+
+
+
     {{csrf_field()}}
     <input type="hidden" name="_method" value="put">
     <button class="btn waves-effect waves-light right deep-orange darken-4 simpan" type="submit" name="action">Simpan
@@ -73,11 +118,19 @@
         
     </form>
   </div>
-
+  </div>
+@endsection
+@section('footer')
   <script type="text/javascript">
-  	$('#textarea1').val('New Text');
-	  M.textareaAutoResize($('#textarea1'));
+  $('#textarea1').val('New Text');
+    M.textareaAutoResize($('#textarea1'));
+   var elem = document.querySelector('select');
+  
+
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
   </script>
         
-	</div>
+</div>
 @endsection

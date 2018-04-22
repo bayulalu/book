@@ -4,6 +4,9 @@
 	#gambar{
 		margin-top: 80px;
 	}
+	#gambar img{
+		border-radius: 50%;	
+	}
 	#owner{
 		margin-top: 85px;
 		margin-left: 10px;
@@ -23,9 +26,7 @@
 				Nama : {{Auth::user()->name}}<br>
 				Status : @if (Auth::user()->status == 1)
 							Admin
-						@else
-							-
-						@endif
+						
 			</div>
 		</div>
 		<hr>
@@ -37,7 +38,9 @@
 		    <a href="/buku/{{$book->slug}}" class="collection-item"><span class="badge"></span>{{$book->title}}</a>    
 		  </div>
 		@endforeach
-
+		@else
+			User Biasa
+		@endif
 	</div>
 
 @endsection

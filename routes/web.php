@@ -27,7 +27,7 @@ Route::group(['middleware' => 'guest'], function(){
 Route::group(['middleware' => 'admin'], function(){
 	Route::resource('/buku', 'BookController', ['except' => ['index','show']]);
 });
-
+Route::get('/buku/filter/{tag}', 'BookController@filter');
 Route::resource('/buku', 'BookController', ['only' => ['index', 'show']]);
 
 Route::get('/home', function(){

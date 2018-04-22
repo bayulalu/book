@@ -15,6 +15,11 @@
 		color: blue;
 		font-size: 20px;
 	}
+	#tag{
+		padding: 3px;
+		background: red;
+		color: white;
+	}
 	
 
 </style>
@@ -48,13 +53,17 @@
 					
 				</div>
 				@endif
+			</div>
 				
 
 				{{-- end --}}
-			</div>
+
 			<div class="col s12">
 				<br><br>
 				
+				@foreach ($book->tags as $tag)
+					<span id="tag">{{$tag->name}}</span>
+				@endforeach
 			<hr>
 				<div>Sinopsis : </div>
 				<p>{{$book->synopsis}}</p>
