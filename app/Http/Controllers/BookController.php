@@ -7,6 +7,7 @@ use App\Models\Tag;
 use App\Models\Book;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 
 class BookController extends Controller
@@ -22,8 +23,11 @@ class BookController extends Controller
 
         $cari_b = urldecode($request->cari);
         if (!empty($cari_b)) {
+   
             $books = Book::with('tags')->where('title','like','%'.$cari_b.'%')->get();
+
         }else{
+            
             $books = Book::with('tags')->orderBy('id','desc')->get();
         }
             return view('konten.book',compact('books','tags'));
@@ -93,7 +97,13 @@ class BookController extends Controller
      */
     public function show($slug)
     {
-        $book = Book::with('comments.user')->where('slug', $slug)->first();
+
+        // $book = Book::with('comments.user')->where('slug', $slug)->first();
+
+        $book = Cache::remember('book-'.$slug, 1, function() use ($slug){
+
+            return Book::with('comments.user')->where('slug', $slug)->first();
+        }); 
         
         return view('konten.singgle', compact('book'));
     }
