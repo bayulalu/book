@@ -65,9 +65,8 @@
       </div>
     </div>
   @endforeach
-
-
   </div>
+  {{$books->appends(Request::input())->links()}}
 	</div>
 
 

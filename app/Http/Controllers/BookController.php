@@ -22,9 +22,9 @@ class BookController extends Controller
 
         $cari_b = urldecode($request->cari);
         if (!empty($cari_b)) {
-            $books = Book::with('tags')->where('title','like','%'.$cari_b.'%')->get();
+            $books = Book::with('tags')->where('title','like','%'.$cari_b.'%')->paginate(8);
         }else{
-            $books = Book::with('tags')->orderBy('id','desc')->get();
+            $books = Book::with('tags')->orderBy('id','desc')->paginate(8);
         }
             return view('konten.book',compact('books','tags'));
     }
@@ -66,6 +66,7 @@ class BookController extends Controller
 
          // upload gambar
          $fileName = time().'.png';
+         
          $request->file('gambar')->storeAs('public/buku', $fileName);
          
           $book = Book::create([
@@ -170,7 +171,7 @@ class BookController extends Controller
         $tags = Tag::all();
         $books = Book::with('tags')->whereHas('tags',function($query) use ($tag){
             $query->where('name', $tag);
-        })->get();
+        })->paginate(8);
 
         return view('konten.book', compact('books', 'tags'));
     }
