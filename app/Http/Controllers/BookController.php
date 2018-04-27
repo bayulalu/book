@@ -22,9 +22,9 @@ class BookController extends Controller
 
         $cari_b = urldecode($request->cari);
         if (!empty($cari_b)) {
-            $books = Book::where('title','like','%'.$cari_b.'%')->get();
+            $books = Book::with('tags')->where('title','like','%'.$cari_b.'%')->get();
         }else{
-            $books = Book::orderBy('id','desc')->get();
+            $books = Book::with('tags')->orderBy('id','desc')->get();
         }
             return view('konten.book',compact('books','tags'));
     }
@@ -93,7 +93,7 @@ class BookController extends Controller
      */
     public function show($slug)
     {
-        $book = Book::where('slug', $slug)->first();
+        $book = Book::with('comments.user')->where('slug', $slug)->first();
         
         return view('konten.singgle', compact('book'));
     }
